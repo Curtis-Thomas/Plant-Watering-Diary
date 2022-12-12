@@ -16,50 +16,46 @@
           <div class="planttimerbox">
             <p>plant1</p>
             <p id="plant1"></p>
-            <p>Seconds until next water</p>
-            <p id="water1">0</p>
+            <p>Name</p>
+            <p id="plant1Named">0</p>
+
+            <p>Time Until Next Water</p>
+            <div class="wateringStats">
+              <p>Hours</p>
+              <p id="water1Hours">0</p>
+              <p>Mins</p>
+              <p id="water1Mins">0</p>
+              <p>Seconds</p>
+              <p id="water1Secs">0</p>
+              <p id="plant1Reset">/</p>
+              <p>!! Super Speed for Test Purpose!!</p>
+            </div>
           </div>
-          <div class="planttimerbox">
-            <p>plant2</p>
-            <p>time until next water</p>
-          </div>
-        </div>
-        <div class="planttimerbox">
-          <p>plant3</p>
-          <p>Time until next water</p>
-        </div>
-        <div class="planttimerbox">
-          <p>plant4</p>
-          <p>time until next water</p>
-        </div>
-        <div class="planttimerbox">
-          <p>plant5</p>
-          <p>time until next water</p>
         </div>
       </div>
       <div class="topright">
         <h2>Add your Plant</h2>
         <div class="addplantbox">
           <div class="plantinfobox" id="croton">
-            <p>Name</p>
-            <p id="croton1"></p>
-            <p>Region</p>
-            <p id="croton2">Region:</p>
-            <p>Sun Exposure</p>
-            <p id="croton3">Sun Exposure:</p>
-            <p>Soil Type</p>
-            <p id="croton4">Soil Type:</p>
-            <p>Wartering Ammount</p>
-            <p id="croton5"></p>
-            <p>Wartering Frequency (hours)</p>
-            <p id="croton6"></p>
+            <p>plant 1</p>
+
+            <label for="Name">Name:</label>
+            <input
+              type="text"
+              id="plant1Name"
+              name="Name"
+              placeholder="Peace Lilly"
+            />
+            <p>Watering Frequency (In Hours)</p>
+            <input
+              type="number"
+              id="plant1Water"
+              name="Name"
+              placeholder="36"
+            />
+
             <button id="btnCroton">Select</button>
           </div>
-
-          <p>Lemon Lime Dracaena</p>
-          <p>Moth Orchid</p>
-          <p>Anthurium</p>
-          <p>Golden Pothos</p>
         </div>
       </div>
     </div>

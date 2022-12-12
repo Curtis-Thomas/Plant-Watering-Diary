@@ -1,47 +1,82 @@
-//plants
+"use-strict";
 
-const plant = {
-  croton: {
-    commonName: "Croton",
-    region: "Asian",
-    sunExposure: "Full, Partial",
-    soilType: "Moist, Well-Drained",
-    wateringFrequency: 168,
-    warteringAmmount: "Couple of Inches",
-  },
-};
-
-//sets croton plant stats
-const plantStats = function (plantName, plantName2, infoNum) {
-  document.querySelector(
-    "#" + String(plantName) + String(infoNum)
-  ).textContent = plantName2;
-};
-
-//populate plant stats
-const plantStatsUpdate = function () {
-  //croton
-  plantStats("croton", plant.croton.commonName, "1");
-  plantStats("croton", plant.croton.region, "2");
-  plantStats("croton", plant.croton.sunExposure, "3");
-  plantStats("croton", plant.croton.soilType, "4");
-  plantStats("croton", plant.croton.warteringAmmount, "5");
-  plantStats("croton", plant.croton.wateringFrequency, "6");
-};
-plantStatsUpdate();
-
+//inputted plant arrays
 let plant1 = {
-  water: 0,
+  name: "N/A",
+
+  //water main is unseen total time
+  waterMain: 0,
+
+  //watering time , hours total(watering A is the input)
+  waterA: 0,
+
+  //c is hours
+  waterC: 0,
+
+  //coundown hours
+  cdH: 0,
+  //countdown mins
+  cdM: 0,
+  //countdown seconds
+  cdS: 0,
 };
-//select plant button
+
+//countdown logic
+const countdown = function (plant) {
+  if (plant.cdM == 0 && plant.cdH > 0) {
+    plant.cdH -= 1;
+    plant.cdM = 60;
+  } else if (plant.cdS <= 0 && plant.cdM > 0) {
+    plant.cdM -= 1;
+    plant.cdS = 60;
+  } else if (plant.cdH <= 0 && plant.cdM <= 0 && plant.chS <= 0) {
+    document.querySelector("#plant1Reset").textContent = "reset";
+  }
+};
+
+//update countdown name + numbers
+const updateUI = function () {
+  //updates name
+  document.querySelector("#plant1Named").textContent = plant1.name;
+
+  //Updates plant 1 countdown
+  document.querySelector("#water1Hours").textContent = plant1.cdH;
+  document.querySelector("#water1Mins").textContent = plant1.cdM;
+  document.querySelector("#water1Secs").textContent = plant1.cdS;
+};
+
+//Submit plant1 info button
 document.querySelector("#btnCroton").addEventListener("click", function () {
-  plant1.water = plant.croton.wateringFrequency * 3600;
-  document.querySelector("#water1").textContent = plant1.water;
-  document.querySelector("#plant1").textContent = plant.croton.commonName;
-  document.querySelector("#btnCroton").style.display = "none";
+  //sets plant 1 name object
+  plant1.name = document.querySelector("#plant1Name").value;
+  console.log(plant1.name);
+  //sets plant 1 water time in hours
+  plant1.waterA = document.querySelector("#plant1Water").value;
+  console.log(plant1.waterA);
+
+  //sets main countdown timer in hours
+  plant1.waterMain = plant1.waterA;
+
+  plant1.cdH = plant1.waterMain;
+
+  //sets hours countdown
+  plant1.waterC = plant1.waterMain * 3600;
+
+  updateUI();
+  countdown(plant1);
+  //If the watering timer is abover 0, countdown
+
   setInterval(function () {
-    plant1.water--;
-    console.log(plant1.water);
-    document.querySelector("#water1").textContent = plant1.water;
-  }, 1000);
+    if (plant1.waterC >= 0) {
+      plant1.cdS--;
+      plant1.waterC--;
+      countdown(plant1);
+      updateUI();
+    } else {
+      document.querySelector(
+        "#plant1Reset"
+      ).textContent = `TIME TO WATER YOUR PLANT`;
+    }
+    console.log(plant1.waterC);
+  }, 1);
 });
