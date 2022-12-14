@@ -9,6 +9,12 @@ dark green: #1E2F25
 html {
   background-color: #1e2f25;
 }
+
+button {
+  color: #91a99b;
+  border: 1px solid #91a99b;
+  background-color: #1e2f25;
+}
 body {
   background-color: #1e2f25;
   color: #91a99b;
