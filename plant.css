@@ -73,3 +73,20 @@ h2 {
   color: #cbcdd2;
   box-shadow: inset 0 0 3px #91a99b;
 }
+
+/* media query for mobile */
+@media only screen and (max-width: 600px) {
+  input {
+    width: 75%;
+  }
+  h2 {
+    font-size: 0.8rem;
+  }
+  p {
+    font-size: 0.8rem;
+  }
+
+  .planttimerbox {
+    padding: 1px;
+  }
+}
