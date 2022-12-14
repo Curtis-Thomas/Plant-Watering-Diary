@@ -14,19 +14,27 @@
         <h2>Watering Timer</h2>
         <div class="timerbox">
           <div class="planttimerbox">
-            <p>plant1</p>
+            <p>Plant 1</p>
             <p id="plant1"></p>
             <p>Name</p>
             <p id="plant1Named">0</p>
 
             <p>Time Until Next Water</p>
-            <div class="wateringStats">
-              <p>Hours</p>
-              <p id="water1Hours">0</p>
-              <p>Mins</p>
-              <p id="water1Mins">0</p>
-              <p>Seconds</p>
-              <p id="water1Secs">0</p>
+            <div class="wateringstats">
+              <div class="wateringcountdown">
+                <div class="countdowns">
+                  <p>Hours</p>
+                  <p id="water1Hours">0</p>
+                </div>
+                <div class="countdowns">
+                  <p>Mins</p>
+                  <p id="water1Mins">0</p>
+                </div>
+                <div class="countdowns">
+                  <p>Seconds</p>
+                  <p id="water1Secs">0</p>
+                </div>
+              </div>
               <p id="plant1Reset">/</p>
               <p>!! Super Speed for Test Purpose!!</p>
             </div>
@@ -37,7 +45,7 @@
         <h2>Add your Plant</h2>
         <div class="addplantbox">
           <div class="plantinfobox" id="croton">
-            <p>plant 1</p>
+            <p>Add Plant 1</p>
 
             <label for="Name">Name:</label>
             <input
@@ -47,12 +55,7 @@
               placeholder="Peace Lilly"
             />
             <p>Watering Frequency (In Hours)</p>
-            <input
-              type="number"
-              id="plant1Water"
-              name="Name"
-              placeholder="36"
-            />
+            <input type="number" id="plant1Water" name="Name" placeholder="1" />
 
             <button id="btnCroton">Select</button>
           </div>
